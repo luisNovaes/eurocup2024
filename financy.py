@@ -8,8 +8,10 @@ simbols = df['Name'].unique()
 
 st.subheader("Stocks App")
 symbol = st.selectbox("Select Action", simbols)
+start_date = st.date_input("Insert start date").strftime('%Y-%m-%d')
+end_date = st.date_input("Insert end date").strftime('%Y-%m-%d')
 if st.button("Get Quote"):
     amzn = yf.Ticker(symbol)
-    end_date = datetime.now().strftime('%Y-%m-%d')
-    amzn_hist = amzn.history(start='2024-01-01',end=end_date)
+    amzn_hist = amzn.history(start=start_date, end=end_date)
     st.table(amzn_hist)
+
