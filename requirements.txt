@@ -5,3 +5,5 @@ Path
 seaborn
 datetime
 pytz
+numpy
+altair
